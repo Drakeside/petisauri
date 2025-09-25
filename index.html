@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>FELIZ CUMPLEAÑOS PETISA</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <!-- Hacer que sea responsive en celulares -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      background: linear-gradient(-45deg, #33001a, #660033, #99004d, #cc0066, #660044);
+      background-size: 500% 500%;
+      animation: gradientMove 18s ease infinite;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ----------- CORAZONES ANIMADOS ----------- */
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      color: #ff4da6;
+      animation: floatUp 2s ease forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: scale(0.5) translateY(0);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2) translateY(-50px);
+        opacity: 0.9;
+      }
+      100% {
+        transform: scale(1) translateY(-120px);
+        opacity: 0;
+      }
+    }
+
+    /* ----------- MODAL DE BIENVENIDA ----------- */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #fff0f6;
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 90%;
+      text-align: center;
+      box-shadow: 0 0 30px #ff80c0;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .modal h2 {
+      font-family: 'Pacifico', cursive;
+      color: #cc0066;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+    }
+
+    .rose {
+      width: 120px;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); filter: drop-shadow(0 0 10px #ff4da6); }
+      to { transform: scale(1.2); filter: drop-shadow(0 0 25px #ff1a75); }
+    }
+
+    .modal p {
+      font-size: 1em;
+      color: #660033;
+      margin: 15px 0;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #ff4da6, #ff80ff);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #ff4da6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ----------- CONTENIDO PRINCIPAL ----------- */
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2em;
+      margin-top: 15px;
+      background: linear-gradient(90deg, #ff66ff, #ff33cc, #ff99ff, #ff3399);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleFlow 6s ease infinite, neonTitle 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes titleFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes neonTitle {
+      from {
+        text-shadow:
+          0 0 5px #ff80ff,
+          0 0 15px #ff33cc,
+          0 0 25px #ff66ff;
+      }
+      to {
+        text-shadow:
+          0 0 10px #ff99ff,
+          0 0 25px #ff33cc,
+          0 0 40px #ff80ff;
+      }
+    }
+
+    .main-scene {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      gap: 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .character {
+      width: 220px;
+      max-width: 40%;
+      z-index: 5;
+      filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.7));
+    }
+
+    .cake {
+      width: 130px;
+      max-width: 30%;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.8));
+    }
+
+    .age {
+      font-size: 3.5em;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ff4da6, #00eaff, #7dff4d, #ffdd00);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: colorFlow 6s ease infinite, neonNumber 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes colorFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes neonNumber {
+      from {
+        text-shadow:
+          0 0 5px #00eaff,
+          0 0 15px #ff4da6,
+          0 0 25px #ffdd00;
+      }
+      to {
+        text-shadow:
+          0 0 10px #7dff4d,
+          0 0 25px #00eaff,
+          0 0 40px #ff4da6;
+      }
+    }
+
+    .spark-gif {
+      width: 70px;
+      height: auto;
+    }
+
+    /* ----------- FLORES ----------- */
+    .flowers {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .flower {
+      position: absolute;
+      width: 35px;
+      opacity: 0.9;
+      animation: fall 8s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-120px) translateX(0) rotate(0deg); opacity: 0; }
+      20% { opacity: 1; }
+      50% { transform: translateY(50vh) translateX(30px) rotate(180deg); }
+      70% { transform: translateY(70vh) translateX(-30px) rotate(220deg); }
+      100% { transform: translateY(100vh) translateX(0) rotate(360deg); opacity: 0; }
+    }
+
+    /* Ajustes responsivos */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8em; }
+      .age { font-size: 2.5em; }
+      .character { width: 180px; }
+      .cake { width: 100px; }
+      .spark-gif { width: 50px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Modal de bienvenida -->
+  <div class="modal" id="welcomeModal">
+    <div class="modal-content">
+      <img src="https://img.freepik.com/fotos-premium/png-rosa-ligera-es-flor-abstracta_53876-682202.jpg" alt="Rosa" class="rose">
+      <h2>Espero te guste Moca 🌹</h2>
+      <p>Lo hice con mucho cariño. <br> TAISKY :3</p>
+      <button class="btn" onclick="closeModal()">VER REGALO</button>
+    </div>
+  </div>
+
+  <h1>FELIZ CUMPLEAÑOS PETISA 💖</h1>
+
+  <div class="main-scene">
+    <img src="https://i.pinimg.com/originals/19/df/f6/19dff60649f6ffa9ca67c54daefb48a5.gif" alt="Torta Pixelada" class="cake">
+    <img src="nesuko.png" alt="Personaje" class="character">
+    <div class="age">
+      22
+      <img src="https://www.icegif.com/wp-content/uploads/2024/03/kuromi-icegif-1.gif" alt="Bengala Chispeante" class="spark-gif">
+    </div>
+  </div>
+
+  <div class="flowers">
+    <img src="lila.png" class="flower" style="left:54%; animation-delay:63;"> <img src="flores_.png" class="flower" style="left:61%; animation-delay:0s;"> <img src="flores.png" class="flower" style="left:48%; animation-delay:1.5s;"> <img src="flores3.png" class="flower" style="left:35%; animation-delay:3s;"> <img src="flores4.png" class="flower" style="left:50%; animation-delay:0.5s;"> <img src="flores_.png" class="flower" style="left:65%; animation-delay:2.5s;"> <img src="flores3.png" class="flower" style="left:78%; animation-delay:4s;"> <img src="flores4.png" class="flower" style="left:35%; animation-delay:5.5s;"> <img src="lila.png" class="flower" style="left:59%; animation-delay:6.5s;"> <img src="flores.png" class="flower" style="left:48%; animation-delay:1.5s;"> <img src="flores_.png" class="flower" style="left:32%; animation-delay:0s;"> <img src="flores.png" class="flower" style="left:34%; animation-delay:1.5s;">
+  </div>
+
+  <script>
+    function closeModal() {
+      document.getElementById('welcomeModal').style.display = 'none';
+    }
+
+    // Corazones al hacer clic/tocar
+    document.addEventListener("click", createHeart);
+    document.addEventListener("touchstart", createHeart);
+
+    function createHeart(e) {
+      const heart = document.createElement("span");
+      heart.classList.add("heart");
+      heart.textContent = "🥰";
+
+      const x = e.clientX || e.touches[0].clientX;
+      const y = e.clientY || e.touches[0].clientY;
+
+      heart.style.left = `${x - 10}px`;
+      heart.style.top = `${y - 10}px`;
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
